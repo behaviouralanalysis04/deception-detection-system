@@ -1,0 +1,28 @@
+/* Additional custom styles */
+.stAlert {
+    border-radius: 10px;
+}
+
+.stProgress > div > div {
+    background: linear-gradient(90deg, #667eea, #764ba2);
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #1a163a;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #667eea;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #764ba2;
+}

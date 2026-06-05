@@ -1,0 +1,23 @@
+services:
+  - type: web
+    name: deception-detection-system
+    runtime: python
+    repo: https://github.com/YOUR_USERNAME/deception-detection
+    plan: starter
+    buildCommand: |
+      apt-get update
+      apt-get install -y ffmpeg
+      pip install --upgrade pip
+      pip install -r requirements.txt
+      chmod +x setup.sh
+      ./setup.sh
+    startCommand: streamlit run app.py --server.port $PORT --server.address 0.0.0.0 --server.enableCORS false --server.enableXsrfProtection false
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.9.18
+      - key: STREAMLIT_SERVER_MAX_UPLOAD_SIZE
+        value: 200
+      - key: STREAMLIT_BROWSER_GATHER_USAGE_STATS
+        value: false
+    healthCheckPath: /_stcore/health
+    autoDeploy: true
